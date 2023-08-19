@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModels="clr-namespace:ShoppingListMobileApp1"
+             x:Class="ShoppingListMobileApp1.EditAddressPage">
+    <ContentPage.BindingContext>
+        <viewModels:AddressViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="5">
+            <Label Text="Edit Address" FontSize="Title" HorizontalOptions="Center" Margin="0, 10, 0, 5" />
+            <!-- Name Entry -->
+            <Label Text="Name" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0" />
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.AddressName}" Placeholder="Enter Country" />
+            </Frame>
+            <!-- Country Entry -->
+            <Label Text="Country" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0"/>
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.CountryName}" Placeholder="Enter Country" />
+            </Frame>
+            <!-- City Entry -->
+            <Label Text="City" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0"/>
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.CityName}" Placeholder="Enter City" />
+            </Frame>
+            <!-- Town Entry -->
+            <Label Text="Town" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0"/>
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.TownName}" Placeholder="Enter Town" />
+            </Frame>
+            <!-- District Entry -->
+            <Label Text="District" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0"/>
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.DistrictName}" Placeholder="Enter District" />
+            </Frame>
+            <!-- Neighborhood Entry --><!--
+            <Label Text="Neighborhood" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0"/>
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.Neighborhood}" Placeholder="Enter Neighborhood" />
+            </Frame>-->
+            <!-- Postal Code Entry -->
+            <Label Text="Postal Code" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0"/>
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.PostCode}" Placeholder="Enter Postal Code" />
+            </Frame>
+            <!-- Address Text Entry -->
+            <Label Text="Adress Text" FontSize="Subtitle" HorizontalOptions="Start" Margin="0, 5, 0, 0"/>
+            <Frame HeightRequest="45"
+                    Padding="0">
+                <Entry Text="{Binding EditedAddress.AddressText}" Placeholder="Enter Address" />
+            </Frame>
+
+            <StackLayout Orientation="Horizontal" Padding="10" Margin="10,10,10,10" Spacing="10" HorizontalOptions="CenterAndExpand">
+                <Button Text="Save Changes" Command="{Binding SaveChangesCommand}"
+                        Clicked="SaveButton_Clicked"
+                    WidthRequest="150"
+                        CornerRadius="50"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Red"
+                        HorizontalOptions="Center"/>
+                <Button Text="Back" Command="{Binding CancelCommand}"
+                    WidthRequest="100"
+                        CornerRadius="50"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Red"
+                        HorizontalOptions="Center"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

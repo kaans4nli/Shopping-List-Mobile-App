@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ShoppingListMobileApp1"
+             x:Class="ShoppingListMobileApp1.AddressPageView">
+    <ContentPage.BindingContext>
+        <viewModels:AddressViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <!-- Address List -->
+        <ListView x:Name="GetAddresses"
+                  SelectionMode="Single"
+                  SelectedItem="{Binding SelectedAddress}"
+                  ItemSelected="GetAddresses_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding AddressName}" FontAttributes="Bold" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Address Details -->
+        <StackLayout IsVisible="{Binding IsAddressSelected}" x:Name="IsVisibleAddressSelected" Margin="10,10,10,10">
+            <Label Text="Selected Address" FontSize="Title" HorizontalOptions="Center" />
+            <Label Text="Name:" />
+            <Entry Text="{Binding SelectedAddress.AddressName}" x:Name="SelectedAddressName" Placeholder="Enter Name" />
+            <Label Text="Country:" />
+            <Entry Text="{Binding SelectedAddress.CountryName}" Placeholder="Enter Country" />
+            <Label Text="City:" />
+            <Entry Text="{Binding SelectedAddress.CityName}" Placeholder="Enter City" />
+            <Label Text="Town:" />
+            <Entry Text="{Binding SelectedAddress.TownName}" Placeholder="Enter Town" />
+            <Label Text="District:" />
+            <Entry Text="{Binding SelectedAddress.DistrictName}" Placeholder="Enter District" />
+            <!--<Label Text="Neighborhood:" />
+            <Entry Text="{Binding SelectedAddress.Neighborhood}" Placeholder="Enter Neighborhood" />-->
+            <Label Text="Postal Code:" />
+            <Entry Text="{Binding SelectedAddress.PostCode}" Placeholder="Enter Postal Code" />
+            <Label Text="Address Text:" />
+            <Entry Text="{Binding SelectedAddress.AddressText}" Placeholder="Enter Address" />
+
+            <StackLayout Orientation="Horizontal" Padding="10" Margin="0,10,0,10" Spacing="10" HorizontalOptions="CenterAndExpand">
+                <Button Text="Edit Address" Command="{Binding EditCommand}"
+                        WidthRequest="120"
+                        CornerRadius="50"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Red"
+                        HorizontalOptions="Center" />
+                <Button Text="Delete Address" Command="{Binding DeleteCommand}"
+                        Clicked="DeleteButton_Clicked"
+                        WidthRequest="140"
+                        CornerRadius="50"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Red"
+                        HorizontalOptions="Center" />
+                <Button Text="\/" Command="{Binding HideAddAddressCommand}"
+                        WidthRequest="60"
+                        CornerRadius="50"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Red"
+                        HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Add Address Section -->
+        <StackLayout IsVisible="{Binding IsAddingAddress}">
+            <Label Text="Add Address" FontSize="Title" HorizontalOptions="Center" />
+            <Label Text="Name:" />
+            <Entry Text="{Binding NewName}" x:Name="AddressName" Placeholder="Enter Name" />
+            <Label Text="Country:" />
+            <Entry Text="{Binding NewCountry}" x:Name="Country" Placeholder="Enter Country" />
+            <Label Text="City:" />
+            <Entry Text="{Binding NewCity}" x:Name="City" Placeholder="Enter City" />
+            <Label Text="Town:" />
+            <Entry Text="{Binding NewTown}" x:Name="Town" Placeholder="Enter Town" />
+            <Label Text="District:" />
+            <Entry Text="{Binding NewDistrictName}" x:Name="District" Placeholder="Enter District" />
+            <!--<Label Text="Neighborhood:" />
+            <Entry Text="{Binding NewNeighborhood}" Placeholder="Enter Neighborhood" />-->
+            <Label Text="Postal Code:" />
+            <Entry Text="{Binding NewPostalCode}" x:Name="PostCode" Placeholder="Enter Postal Code" />
+            <Label Text="Address Text:" />
+            <Entry Text="{Binding NewAddressText}" x:Name="AddressText" Placeholder="Enter Address" />
+
+            <StackLayout Orientation="Horizontal" Padding="10" Margin="10,10,10,10" Spacing="10" HorizontalOptions="CenterAndExpand">
+                <Button Text="Save" Command="{Binding SaveAddressCommand}"
+                        Clicked="SaveButton_Clicked"
+                        WidthRequest="100"
+                        CornerRadius="50"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Red"
+                        HorizontalOptions="Center" />
+                <Button Text="Cancel" Command="{Binding CancelAddAddressCommand}"
+                        WidthRequest="100"
+                        CornerRadius="50"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Red"
+                        HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Add Address Button -->
+        <Button Text="Add Address" Command="{Binding AddAddressCommand}"
+                IsVisible="{Binding AddAddressButton}"
+                Margin="10,10,10,10"
+                WidthRequest="150"
+                CornerRadius="50"
+                TextColor="Black"
+                FontAttributes="Bold"
+                BackgroundColor="Red"
+                HorizontalOptions="Center" />
+    </StackLayout>
+</ContentPage>
