@@ -15,7 +15,7 @@ namespace ShoppingListMobileApp1.Services
 {
     public class AddressService
     {
-        private const string ApiUrl = "https://192.168.1.33:45455/api/";
+        private const string ApiUrl = "https://192.168.1.44:45455/api/";
 
         private readonly HttpClient _httpClient;
 

@@ -1,11 +1,12 @@
-﻿namespace ShoppingListMobileApp1;
-
-public partial class App : Application
+﻿namespace ShoppingListMobileApp1
 {
-	public App()
+	public partial class App : Application
 	{
-		InitializeComponent();
+		public App()
+		{
+			InitializeComponent();
 
-		MainPage = new AppShell();
-    }
+			MainPage = new AppShell();
+		}
+	}
 }

@@ -41,8 +41,13 @@
                                             <VerticalStackLayout Grid.Column="1"
                                                              Padding="10"
                                                              VerticalOptions="Center">
-                                                <Label Text="{Binding ProductName}" FontSize="Subtitle" VerticalOptions="Center" />
-                                                <Label Text="{Binding Quantity}" FontSize="Subtitle" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                                                <Label Text="{Binding ProductName}" 
+                                                       FontSize="Subtitle" 
+                                                       VerticalOptions="Center" />
+                                                <Label Text="{Binding Quantity}"
+                                                       FontSize="Subtitle" 
+                                                       VerticalOptions="Center" 
+                                                       HorizontalOptions="EndAndExpand" />
                                             </VerticalStackLayout>
                                         </Grid>
                                     </Frame>
